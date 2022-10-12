@@ -1,0 +1,132 @@
+/* FOR DEFAULT VIEW */
+
+/* Needed for logo animation */
+@keyframes logomove {
+    from {width: 25px; opacity: 0;}
+    to {width: 475px; opacity: 1;}
+}
+
+#logo {
+    animation: logomove 5s;
+}
+
+/* Override body styling in other css files */
+body {
+    font-family: 'Poppins', 'serif';
+    background-image: url("/images/concrete_seamless.png");
+    background-color: #f1f1f1;
+}
+
+/* Override header styling in other css files */
+header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav_links {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav_item a:hover, a:focus, a:link, a:visited {
+    color: blue;
+}
+
+.card > header {
+    background-color: #288088;
+    border: 2px solid #45ADAD;
+    padding: 20px;
+    border-radius: 50px 50px 0 0;
+}
+
+.pricing {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.card {
+    border-radius: 50px 50px 0 0;
+    flex-basis: 450px;
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.gallery img {
+    border: 10px solid #50C7C7;
+    margin: 10px;
+    width: 300px;
+}
+
+/* FOR SCREENS GREATER THAN 900px */
+@media (min-width: 900px) {
+    header {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .nav_links {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .card {
+        flex-basis: 275px;
+    }
+
+    /* attempt at fixed nav bar */
+    /* header ~ img, .nav_links {
+        position: fixed;
+        width: 100%;
+        z-index: 99999;
+    } */
+}
+
+/* FOR USERS WHO PREFER REDUCED MOTION */
+@media (prefers-reduced-motion: reduce) {
+    #logo {
+        animation: none;
+    }
+}
+
+/* WHEN PAGE IS PRINTED IN PORTAIT MODE */
+@media print {
+    @page {size: portait;}
+    body {
+        font-family: 'Arial', 'Helvetica';
+        background-image: none;
+    }
+
+    .nav_links {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: space-between;
+    }
+
+    .card {
+        border: 2px solid #45ADDD;
+        flex-basis: 325px;
+    }
+
+    .pricing {
+        flex-wrap:nowrap;
+        align-items: flex-end;
+    }
+    
+    #gallery, .gallery {
+        display: none;
+    }
+
+    li:nth-child(2)::after {
+        content: "👍";
+    }
+}
